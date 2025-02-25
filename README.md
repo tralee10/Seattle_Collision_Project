@@ -69,6 +69,7 @@ Provides real-time statistics, such as:
 This project is inspired by:
 
 Fatal Crash Map by the Washington Traffic Safety Commission
+
 Seattle Collision Data Visualization by Tim Ganter
 
 ## 📂 Repository Structure
