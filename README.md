@@ -42,16 +42,22 @@ This project is designed for:
 We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
 Cleaned datasets are stored in the assets/ folder.
 
-🌎 Features & Functionality
+## 🌎 Features & Functionality
 
-🔹 Interactive Web Map
+Interactive Web Map:
+
 Built using Mapbox for smooth visualization.
 Displays collision locations with pop-up details.
-🔹 User-Controlled Filters
+
+User-Controlled Filters:
+
 Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.
-🔹 Heatmaps & Clustering
+
+Heatmaps & Clustering
+
 Highlights high-risk areas to identify traffic hazards.
-🔹 Data Summary Panel
+
+Data Summary Panel
 
 Provides real-time statistics, such as:
 
@@ -59,19 +65,12 @@ Provides real-time statistics, such as:
 🔹High-risk intersections.
 🔹Trends over time.
 
-🔗 Inspirations & References
+## 🔗 Inspirations & References
 This project is inspired by:
 
 Fatal Crash Map by the Washington Traffic Safety Commission
 Seattle Collision Data Visualization by Tim Ganter
 
-🛠️ Tech Stack
-Frontend: HTML, CSS, JavaScript
-Mapping Library: Mapbox
-Data Processing: Python (pandas, geopandas)
-Visualization: D3.js / Chart.js (optional for graphs)
-Hosting: GitHub Pages / Netlify (TBD)
-
-📂 Repository Structure
+## 📂 Repository Structure
 
 
