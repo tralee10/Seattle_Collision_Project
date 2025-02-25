@@ -21,13 +21,21 @@ This project is designed for:
 🔹Drivers & Commuters – To avoid hazardous areas and plan safer routes.
 
 📊 Available Datasets
+
 🔹Seattle GeoData Portal – General dataset collection related to Seattle traffic collisions. 
+
 (https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions)
+
 🔹Washington Traffic Safety Commission - Focuses on fatal crashes, providing additional context on severe accidents, speed limits, pedestrian involvement, and primary causes. 
+
 (https://wtsc.wa.gov/dashboards/fatal-crash-map/)
+
 🔹Seattle GeoData Portal (Vehicle Collisions Data) - Contains records of vehicle-related collisions, including crash details such as severity, involved vehicles, and contributing factors. 
+
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about)
+
 🔹Seattle GeoData Portal (Persons Collisions Data) - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
+
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
 
 🚀 Data Processing:
@@ -35,6 +43,7 @@ We cleaned and formatted the datasets by removing irrelevant columns, handling m
 Cleaned datasets are stored in the assets/ folder.
 
 🌎 Features & Functionality
+
 🔹 Interactive Web Map
 Built using Mapbox for smooth visualization.
 Displays collision locations with pop-up details.
@@ -45,6 +54,7 @@ Highlights high-risk areas to identify traffic hazards.
 🔹 Data Summary Panel
 
 Provides real-time statistics, such as:
+
 🔹Most common crash causes.
 🔹High-risk intersections.
 🔹Trends over time.
