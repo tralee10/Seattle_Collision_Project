@@ -7,7 +7,7 @@ Visualizing Car Crashes in Seattle for Better Road Safety
 ## 📌 Project Overview
 Our group is developing an interactive web map that visualizes car crashes in Seattle using publicly available datasets. This tool provides insights into traffic incidents, allowing users to explore different trends through interactive filtering and visualizations.
 
-## 🚗 Key Objectives:
+## 🚗 Key Objectives
 Increase public awareness of traffic hazards.
 Help city planners make data-driven urban planning decisions.
 Enable drivers and commuters to navigate more safely.
