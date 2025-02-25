@@ -44,26 +44,26 @@ Cleaned datasets are stored in the assets/ folder.
 
 ## 🌎 Features & Functionality
 
-Interactive Web Map:
+### Interactive Web Map:
 
-Built using Mapbox for smooth visualization.
-Displays collision locations with pop-up details.
+    - Built using Mapbox for smooth visualization.
+    - Displays collision locations with pop-up details.
 
 User-Controlled Filters:
 
-Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.
+    - Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.
 
 Heatmaps & Clustering
 
-Highlights high-risk areas to identify traffic hazards.
+    - Highlights high-risk areas to identify traffic hazards.
 
 Data Summary Panel
 
-Provides real-time statistics, such as:
+    - Provides real-time statistics, such as:
 
-🔹Most common crash causes.
-🔹High-risk intersections.
-🔹Trends over time.
+    🔹Most common crash causes.
+    🔹High-risk intersections.
+    🔹Trends over time.
 
 ## 🔗 Inspirations & References
 This project is inspired by:
