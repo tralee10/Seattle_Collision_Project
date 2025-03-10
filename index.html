@@ -2,261 +2,479 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Seattle Car Crashes</title>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+  <title>Seattle Car Crashes - Interactive Page</title>
+  <!-- Mapbox GL CSS -->
+  <link 
+    href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" 
+    rel="stylesheet" 
+  />
+
+  <script 
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js">
+  </script>
+
+  <script 
+    src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js">
+  </script>
+
   <style>
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
     body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
       width: 100%;
-      font-family: sans-serif;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
     }
     #map {
       position: absolute;
-      top: 0; bottom: 0;
+      top: 0; 
+      bottom: 0; 
       width: 100%;
     }
-    .map-overlay {
+    /* Sidebar / Control Panel */
+    #sidebar {
       position: absolute;
-      margin: 12px;
+      width: 300px;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: #fff;
+      overflow-y: auto;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.15);
+      padding: 15px;
+      z-index: 2;
+    }
+    #sidebar h2 {
+      margin-bottom: 10px;
+    }
+    #sidebar .filters label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    #sidebar select, 
+    #sidebar input[type="range"] {
+      width: 100%;
+    }
+    #sidebar hr {
+      margin: 15px 0;
+    }
+    /* Legend styling */
+    .legend {
+      position: absolute;
+      left: 10px;
+      top: 10px;
       background-color: #fff;
       border-radius: 3px;
-      z-index: 2;
-      font-size: 14px;
-      line-height: 1.3;
       padding: 10px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      font-size: 13px;
+      line-height: 1.5;
+      z-index: 2;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
-    #legend {
-      top: 10px;
-      left: 10px;
+    .legend h4 {
+      margin-bottom: 5px;
     }
-    #controls {
-      top: 10px;
-      right: 10px;
-      width: 200px;
+    .legend div {
+      display: flex; 
+      align-items: center; 
+      margin-bottom: 4px;
     }
-    #timeSliderContainer {
-      bottom: 20px;
-      width: 80%;
-      left: 10%;
+    .legend span {
+      display: inline-block; 
+      width: 12px; 
+      height: 12px; 
+      margin-right: 8px; 
+      border-radius: 50%;
+    }
+    /* Chart Container */
+    #chartContainer {
+      margin-top: 10px;
+      width: 100%;
+      height: 200px;
+    }
+    #chart {
+      width: 100%;
+      height: 200px;
+    }
+    /* Year Slider Container */
+    #yearSliderContainer {
+      margin-top: 10px;
       text-align: center;
     }
-    #timeSlider {
-      width: 80%;
-    }
-    #toggleBtn {
-      margin-bottom: 10px;
-      width: 100%;
-    }
-    label {
-      display: block;
-      margin: 5px 0;
+    #sliderValue {
+      font-weight: bold;
     }
   </style>
 </head>
+
 <body>
+  <!-- Map Div -->
+  <div id="map"></div>
 
-<div id="map"></div>
+  <!-- Dot Density Legend -->
+  <div id="legend" class="legend">
+    <h4>Dot Density Legend</h4>
+    <div>
+      <span style="background-color: #e55e5e;"></span>Injury Collision
+    </div>
+    <div>
+      <span style="background-color: #3bb2d0;"></span>Property Damage Only
+    </div>
+    <div>
+      <span style="background-color: #8a2be2;"></span>Unknown
+    </div>
+    <div>
+      <span style="background-color: #ff7f00;"></span>Serious Injury
+    </div>
+    <div>
+      <span style="background-color: #000000;"></span>Fatality
+    </div>
+  </div>
 
-<div id="legend" class="map-overlay">
-  <strong>Legend</strong>
-  <div id="legend-heatmap" class="map-overlay" style="display: none;">
-    <strong>Heatmap Legend</strong>
-    <div style="width: 150px; height: 10px; background: linear-gradient(to right, green, yellow, red); border: 1px solid #ccc;"></div>
+  <!-- Heatmap Legend  -->
+  <div id="legendHeatmap" class="legend" style="display: none;">
+    <h4>Heatmap Intensity</h4>
+    <!-- Matches the paint color ramp (green -> yellow -> red) -->
+    <div style="width: 150px; height: 10px; 
+                background: linear-gradient(to right, green, yellow, red);
+                border: 1px solid #ccc; margin-bottom: 5px;"></div>
     <div style="display: flex; justify-content: space-between; width: 150px;">
-      <span style="font-size: 12px; color: #555;">Low</span>
-      <span style="font-size: 12px; color: #555;">High</span>
+      <span>Low</span>
+      <span>High</span>
     </div>
-    <p style="font-size: 12px; color: #555;">Zoom in for a more detailed result.</p>
+    <p style="margin-top:5px;">Zoom in for more detail.</p>
   </div>
-  
-  <div id="legend-points" style="display: block;">
-    <strong>Dot Density Legend</strong>
-    <div style="display: flex; align-items: center; margin-top: 5px;">
-      <span style="width: 12px; height: 12px; background-color: #e55e5e; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
-      Injury Collision
+
+  <!-- Sidebar / Control Panel -->
+  <div id="sidebar">
+    <h2>Seattle Crash Map</h2>
+    <p style="margin-bottom: 10px;">
+      Explore collisions in Seattle by year, severity, and collision type. Switch between a heatmap and dot-density view, and see summary statistics update in real time.
+    </p>
+
+    <!-- Toggle Heatmap / Dot-Density -->
+    <button id="toggleViewBtn">Switch to Heatmap</button>
+    <hr>
+
+    <!-- Filters -->
+    <div class="filters">
+      <label for="yearRange">Year</label>
+      <div id="yearSliderContainer">
+        <!-- 1) Changed step to 4 so it only toggles between 2016 and 2020 -->
+        <input 
+          id="yearRange" 
+          type="range" 
+          min="2016" 
+          max="2020" 
+          step="4" 
+          value="2016"
+        />
+        <div>
+          <span id="sliderValue">2016</span>
+        </div>
+      </div>
+
+      <label for="severityFilter">Severity</label>
+      <select id="severityFilter">
+        <option value="all">All Severities</option>
+      </select>
+
+      <label for="collisionTypeFilter">Collision Type</label>
+      <select id="collisionTypeFilter">
+        <option value="all">All Types</option>
+      </select>
     </div>
-    <div style="display: flex; align-items: center; margin-top: 5px;">
-      <span style="width: 12px; height: 12px; background-color: #3bb2d0; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
-      Property Damage Only Collision
+
+    <hr>
+
+    <!-- Summary Stats -->
+    <h3>Summary Statistics</h3>
+    <div id="statsContainer">
+      <p><strong>Total Collisions:</strong> <span id="statTotal">0</span></p>
+      <p><strong>Fatalities:</strong> <span id="statFatal">0</span></p>
+      <p><strong>Serious Injuries:</strong> <span id="statSerious">0</span></p>
     </div>
-    <div style="display: flex; align-items: center; margin-top: 5px;">
-      <span style="width: 12px; height: 12px; background-color: #8a2be2; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
-      Unknown
-    </div>
-    <div style="display: flex; align-items: center; margin-top: 5px;">
-      <span style="width: 12px; height: 12px; background-color: #ff7f00; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
-      Serious Injury Collision
-    </div>
-    <div style="display: flex; align-items: center; margin-top: 5px;">
-      <span style="width: 12px; height: 12px; background-color: #000000; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
-      Fatality Collision
+
+    <!-- Chart -->
+    <div id="chartContainer">
+      <canvas id="chart"></canvas>
     </div>
   </div>
-  
-</div>
 
-<div id="controls" class="map-overlay">
-  <button id="toggleBtn">Switch to Heatmap</button>
-  <hr>
-  <label for="severityFilter"><strong>Severity Description</strong></label>
-  <select id="severityFilter">
-    <option value="all">All Severities</option>
-  </select>
+  <!-- Mapbox GL JS -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+  <script>
+    // Mapbox Accesstoken
+    mapboxgl.accessToken = 'pk.eyJ1IjoicWl6aGV4dSIsImEiOiJjbTZzbmE1bHcwOWFrMmtvc3M2bWVmd2d6In0.W9AIJnK5UM1GNNwKZIXU2g';
 
-  <label for="collisionTypeFilter"><strong>Collision Type</strong></label>
-  <select id="collisionTypeFilter">
-    <option value="all">All Types</option>
-  </select>
-</div>
-
-<div id="timeSliderContainer" class="map-overlay">
-  <input type="range" id="timeSlider" min="2016" max="2020" step="4" value="2016" />
-  <p>Year: <span id="sliderYear">2016</span></p>
-</div>
-
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
-<script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiamVybXRhbiIsImEiOiJjbTZ0dWJrdTEwNm85MnJwdDkwMnRnbWdzIn0.veXha7dQKwAH_U5gHXIXQg';
-
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-122.3321, 47.6062],
-    zoom: 11
-  });
-
-  fetch('cleanedData/Filtered_Collisions_Data__2016___2020_.geojson')
-    .then(response => response.json())
-    .then(data => {
-      map.on('load', () => {
-        map.addSource('collisions', { type: 'geojson', data });
-
-        map.addLayer({
-          id: 'collisions-heat',
-          type: 'heatmap',
-          source: 'collisions',
-          maxzoom: 16,
-          paint: {
-            'heatmap-intensity': [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              0, 0.5,
-              15, 1.5
-            ],
-            'heatmap-color': [
-              'interpolate',
-              ['linear'],
-              ['heatmap-density'],
-              0, 'rgba(0,255,0,0)', // Transparent green
-              0.3, 'rgba(0,255,0,0.8)', // Green
-              0.6, 'rgba(255,255,0,0.8)', // Yellow
-              1, 'rgba(255,0,0,0.8)' // Red
-            ],
-            'heatmap-radius': [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              0, 2,
-              9, 20
-            ],
-            'heatmap-opacity': 0.8
-          },
-          layout: { 'visibility': 'none' }
-        });
-
-        map.addLayer({
-          id: 'collisions-circle',
-          type: 'circle',
-          source: 'collisions',
-          paint: {
-            'circle-radius': 4,
-            'circle-color': [
-              'match',
-              ['get', 'SEVERITYDESC'],
-              'Injury Collision', '#e55e5e',        
-              'Property Damage Only Collision', '#3bb2d0', 
-              'Unknown', '#8a2be2',                
-              'Serious Injury Collision', '#ff7f00', 
-              'Fatality Collision', '#000000',      
-              '#ccc' 
-            ],
-            'circle-opacity': 0.7
-          },
-          layout: { 'visibility': 'visible' }
-        });
-
-        populateFilters(data);
-      });
-    })
-    .catch(error => console.error('Error loading GeoJSON:', error));
-
-  const toggleBtn = document.getElementById('toggleBtn');
-  let isHeatmapVisible = false;
-
-  toggleBtn.addEventListener('click', () => {
-    isHeatmapVisible = !isHeatmapVisible;
-    map.setLayoutProperty('collisions-heat', 'visibility', isHeatmapVisible ? 'visible' : 'none');
-    map.setLayoutProperty('collisions-circle', 'visibility', isHeatmapVisible ? 'none' : 'visible');
-    toggleBtn.textContent = isHeatmapVisible ? 'Switch to Dot Density' : 'Switch to Heatmap';
-    document.getElementById('legend-heatmap').style.display = isHeatmapVisible ? 'block' : 'none';
-    document.getElementById('legend-points').style.display = isHeatmapVisible ? 'none' : 'block';
-  });
-
-  const timeSlider = document.getElementById('timeSlider');
-  const sliderYearLabel = document.getElementById('sliderYear');
-
-  timeSlider.addEventListener('input', () => {
-    sliderYearLabel.textContent = timeSlider.value;
-    filterData();
-  });
-
-  const severityFilter = document.getElementById('severityFilter');
-  const collisionTypeFilter = document.getElementById('collisionTypeFilter');
-
-  severityFilter.addEventListener('change', filterData);
-  collisionTypeFilter.addEventListener('change', filterData);
-
-  function filterData() {
-    const selectedYear = parseInt(timeSlider.value, 10);
-    const selectedSeverity = severityFilter.value;
-    const selectedCollisionType = collisionTypeFilter.value;
-
-    let filters = ['all'];
-
-    filters.push([
-      '==',
-      ['number', ['to-number', ['slice', ['get', 'INCDATE'], 0, 4]]], 
-      selectedYear
-    ]);
-
-    if (selectedSeverity !== 'all') {
-      filters.push(['==', ['get', 'SEVERITYDESC'], selectedSeverity]);
-    }
-
-    if (selectedCollisionType !== 'all') {
-      filters.push(['==', ['get', 'COLLISIONTYPE'], selectedCollisionType]);
-    }
-
-    map.setFilter('collisions-heat', filters);
-    map.setFilter('collisions-circle', filters);
-  }
-
-  function populateFilters(data) {
-    let severityOptions = new Set(), collisionOptions = new Set();
-    data.features.forEach(f => {
-      severityOptions.add(f.properties.SEVERITYDESC);
-      collisionOptions.add(f.properties.COLLISIONTYPE);
+    // Initialize the map
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [-122.3321, 47.6062], // Seattle
+      zoom: 11
     });
 
-    severityOptions.forEach(severity => severityFilter.innerHTML += `<option value="${severity}">${severity}</option>`);
-    collisionOptions.forEach(type => collisionTypeFilter.innerHTML += `<option value="${type}">${type}</option>`);
-  }
-</script>
+    // State to track whether heatmap is active
+    let isHeatmap = false;
 
+    // DOM elements
+    const toggleViewBtn = document.getElementById('toggleViewBtn');
+    const yearRange = document.getElementById('yearRange');
+    const sliderValue = document.getElementById('sliderValue');
+    const severitySelect = document.getElementById('severityFilter');
+    const collisionTypeSelect = document.getElementById('collisionTypeFilter');
+
+    // Stats DOM
+    const statTotal = document.getElementById('statTotal');
+    const statFatal = document.getElementById('statFatal');
+    const statSerious = document.getElementById('statSerious');
+
+    // Legends
+    const dotLegend = document.getElementById('legend');
+    const heatLegend = document.getElementById('legendHeatmap');
+
+    // Chart.js elements
+    let collisionChart;
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    // Fetch the collision data
+    fetch('cleanedData/Filtered_Collisions_Data__2016___2020_.geojson')
+      .then(response => response.json())
+      .then(data => {
+        map.on('load', () => {
+          // Add the source
+          map.addSource('collisions', {
+            type: 'geojson',
+            data: data
+          });
+
+          // Add Dot Density Layer
+          map.addLayer({
+            id: 'collisions-circle',
+            type: 'circle',
+            source: 'collisions',
+            paint: {
+              'circle-radius': 4,
+              'circle-color': [
+                'match',
+                ['get', 'SEVERITYDESC'],
+                'Injury Collision', '#e55e5e',         // Red
+                'Property Damage Only Collision', '#3bb2d0', // Light Blue
+                'Unknown', '#8a2be2',                 // Purple
+                'Serious Injury Collision', '#ff7f00', // Orange
+                'Fatality Collision', '#000000',       // Black
+                '#ccc' // Fallback
+              ],
+              'circle-opacity': 0.7
+            }
+          });
+
+          // Add Heatmap Layer (hidden by default)
+          map.addLayer({
+            id: 'collisions-heat',
+            type: 'heatmap',
+            source: 'collisions',
+            maxzoom: 16,
+            paint: {
+              'heatmap-intensity': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                10, 0.5,
+                15, 2
+              ],
+              'heatmap-color': [
+                'interpolate',
+                ['linear'],
+                ['heatmap-density'],
+                0, 'rgba(0,255,0,0)',
+                0.3, 'rgba(0,255,0,0.8)',
+                0.6, 'rgba(255,255,0,0.8)',
+                1, 'rgba(255,0,0,0.8)'
+              ],
+              'heatmap-radius': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                0, 2,
+                9, 20
+              ],
+              'heatmap-opacity': 0.8
+            },
+            layout: {
+              'visibility': 'none'
+            }
+          });
+
+          // Populate filter dropdowns
+          populateFilters(data);
+
+          // Build the chart structure
+          collisionChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [], // e.g., severities
+              datasets: [{
+                label: 'Number of Collisions',
+                data: [],
+              }]
+            },
+            options: {
+              plugins: {
+                legend: { display: false }
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: { title: { display: true, text: 'Severity' } },
+                y: { title: { display: true, text: 'Count' }, beginAtZero: true }
+              }
+            }
+          });
+
+          // Update everything on initial load
+          updateFiltersAndStats();
+        });
+
+        // Add a popup on click for dot-density layer
+        map.on('click', 'collisions-circle', (e) => {
+          const feature = e.features[0];
+          if (!feature) return;
+          const props = feature.properties;
+          new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`
+              <strong>Date:</strong> ${props.INCDATE}<br/>
+              <strong>Severity:</strong> ${props.SEVERITYDESC}<br/>
+              <strong>Type:</strong> ${props.COLLISIONTYPE}<br/>
+              <strong>Address:</strong> ${props.ADDRTYPE || 'N/A'}
+            `)
+            .addTo(map);
+        });
+
+        // Change cursor to pointer when hovering the circle layer
+        map.on('mouseenter', 'collisions-circle', () => {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+        map.on('mouseleave', 'collisions-circle', () => {
+          map.getCanvas().style.cursor = '';
+        });
+      })
+      .catch(err => console.error('Error loading GeoJSON:', err));
+
+    // Toggle between dot-density and heatmap
+    toggleViewBtn.addEventListener('click', () => {
+      isHeatmap = !isHeatmap;
+      map.setLayoutProperty('collisions-heat', 'visibility', isHeatmap ? 'visible' : 'none');
+      map.setLayoutProperty('collisions-circle', 'visibility', isHeatmap ? 'none' : 'visible');
+
+      toggleViewBtn.textContent = isHeatmap 
+        ? 'Switch to Dot Density' 
+        : 'Switch to Heatmap';
+      
+      // Show/hide the appropriate legends
+      dotLegend.style.display = isHeatmap ? 'none' : 'block';
+      heatLegend.style.display = isHeatmap ? 'block' : 'none';
+    });
+
+    // Event listeners for filters
+    yearRange.addEventListener('input', () => {
+      sliderValue.textContent = yearRange.value;
+      updateFiltersAndStats();
+    });
+    severitySelect.addEventListener('change', updateFiltersAndStats);
+    collisionTypeSelect.addEventListener('change', updateFiltersAndStats);
+
+    // Function to build filter array & apply to layers
+    function updateFiltersAndStats() {
+      const year = parseInt(yearRange.value, 10);
+      const severity = severitySelect.value;
+      const collisionType = collisionTypeSelect.value;
+
+      let filters = ['all'];
+
+      // Year filter: compare first 4 chars of INCDATE to the slider
+      filters.push([
+        '==',
+        [
+          'number',
+          ['to-number', ['slice', ['get', 'INCDATE'], 0, 4]]
+        ],
+        year
+      ]);
+
+      if (severity !== 'all') {
+        filters.push(['==', ['get', 'SEVERITYDESC'], severity]);
+      }
+
+      if (collisionType !== 'all') {
+        filters.push(['==', ['get', 'COLLISIONTYPE'], collisionType]);
+      }
+
+      map.setFilter('collisions-heat', filters);
+      map.setFilter('collisions-circle', filters);
+
+      // Update stats after filter
+      updateStats(filters);
+    }
+
+    // Use map.querySourceFeatures to get the filtered features on the client
+    function updateStats(filters) {
+      const features = map.querySourceFeatures('collisions', { filter: filters });
+      const total = features.length;
+      const fatal = features.filter(f => f.properties.SEVERITYDESC === 'Fatality Collision').length;
+      const serious = features.filter(f => f.properties.SEVERITYDESC === 'Serious Injury Collision').length;
+
+      statTotal.textContent = total;
+      statFatal.textContent = fatal;
+      statSerious.textContent = serious;
+
+      // Update bar chart (collisions by severity)
+      const severitiesCount = {};
+      features.forEach(f => {
+        const sev = f.properties.SEVERITYDESC;
+        if (!severitiesCount[sev]) severitiesCount[sev] = 0;
+        severitiesCount[sev]++;
+      });
+
+      const severityLabels = Object.keys(severitiesCount);
+      const severityData = severityLabels.map(s => severitiesCount[s]);
+
+      collisionChart.data.labels = severityLabels;
+      collisionChart.data.datasets[0].data = severityData;
+      collisionChart.update();
+    }
+
+    // Populate the dropdowns for severity & collision type
+    function populateFilters(geojson) {
+      const features = geojson.features;
+      const severities = new Set();
+      const collisionTypes = new Set();
+
+      features.forEach(feature => {
+        severities.add(feature.properties.SEVERITYDESC);
+        collisionTypes.add(feature.properties.COLLISIONTYPE);
+      });
+
+      severities.forEach(sev => {
+        const option = document.createElement('option');
+        option.value = sev;
+        option.textContent = sev;
+        severitySelect.appendChild(option);
+      });
+
+      collisionTypes.forEach(ct => {
+        const option = document.createElement('option');
+        option.value = ct;
+        option.textContent = ct;
+        collisionTypeSelect.appendChild(option);
+      });
+    }
+  </script>
 </body>
 </html>
