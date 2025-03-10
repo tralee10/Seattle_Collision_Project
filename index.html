@@ -70,12 +70,12 @@
 <div id="controls" class="map-overlay">
   <button id="toggleBtn">Switch to Heatmap</button>
   <hr>
-  <label for="severityFilter"><strong>SEVERITYDESC</strong></label>
+  <label for="severityFilter"><strong>Severity Description</strong></label>
   <select id="severityFilter">
     <option value="all">All Severities</option>
   </select>
 
-  <label for="collisionTypeFilter"><strong>COLLISIONTYPE</strong></label>
+  <label for="collisionTypeFilter"><strong>Collision Type</strong></label>
   <select id="collisionTypeFilter">
     <option value="all">All Types</option>
   </select>
@@ -146,12 +146,12 @@
             'circle-color': [
               'match',
               ['get', 'SEVERITYDESC'],
-              'Injury Collision', '#e55e5e',        // Red
-              'Property Damage Only Collision', '#3bb2d0', // Blue
-              'Unknown', '#8a2be2',                // Purple
-              'Serious Injury Collision', '#ff7f00', // Orange
-              'Fatality Collision', '#000000',      // Black
-              '#ccc' // Default gray for any unlisted values
+              'Injury Collision', '#e55e5e',        
+              'Property Damage Only Collision', '#3bb2d0', 
+              'Unknown', '#8a2be2',                
+              'Serious Injury Collision', '#ff7f00', 
+              'Fatality Collision', '#000000',      
+              '#ccc' 
             ],
             'circle-opacity': 0.7
           },
