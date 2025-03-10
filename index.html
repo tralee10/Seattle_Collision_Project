@@ -63,8 +63,40 @@
 
 <div id="legend" class="map-overlay">
   <strong>Legend</strong>
-  <p id="legend-heatmap" style="display: none;">Heatmap: Higher density = Red, Lower = Green</p>
-  <p id="legend-points" style="display: block;">Dot Map: Each dot = One crash</p>
+  <div id="legend-heatmap" class="map-overlay" style="display: none;">
+    <strong>Heatmap Legend</strong>
+    <div style="width: 150px; height: 10px; background: linear-gradient(to right, green, yellow, red); border: 1px solid #ccc;"></div>
+    <div style="display: flex; justify-content: space-between; width: 150px;">
+      <span style="font-size: 12px; color: #555;">Low</span>
+      <span style="font-size: 12px; color: #555;">High</span>
+    </div>
+    <p style="font-size: 12px; color: #555;">Zoom in for a more detailed result.</p>
+  </div>
+  
+  <div id="legend-points" style="display: block;">
+    <strong>Dot Density Legend</strong>
+    <div style="display: flex; align-items: center; margin-top: 5px;">
+      <span style="width: 12px; height: 12px; background-color: #e55e5e; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+      Injury Collision
+    </div>
+    <div style="display: flex; align-items: center; margin-top: 5px;">
+      <span style="width: 12px; height: 12px; background-color: #3bb2d0; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+      Property Damage Only Collision
+    </div>
+    <div style="display: flex; align-items: center; margin-top: 5px;">
+      <span style="width: 12px; height: 12px; background-color: #8a2be2; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+      Unknown
+    </div>
+    <div style="display: flex; align-items: center; margin-top: 5px;">
+      <span style="width: 12px; height: 12px; background-color: #ff7f00; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+      Serious Injury Collision
+    </div>
+    <div style="display: flex; align-items: center; margin-top: 5px;">
+      <span style="width: 12px; height: 12px; background-color: #000000; border-radius: 50%; display: inline-block; margin-right: 5px;"></span>
+      Fatality Collision
+    </div>
+  </div>
+  
 </div>
 
 <div id="controls" class="map-overlay">
