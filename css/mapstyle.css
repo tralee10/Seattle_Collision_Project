@@ -1,1 +1,129 @@
+/* Global Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  text-align: center;
+}
 
+/* Navigation Bar */
+nav {
+  background: #1f2d3d;
+  padding: 15px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+
+nav ul li a:hover {
+  background: #3498db;
+  border-radius: 5px;
+}
+
+/* Home Button */
+.home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-icon {
+  width: 50px; 
+  height: 50px;
+  transition: 0.3s;
+}
+
+.home-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* Header */
+header {
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Map Button */
+.map-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  background: #3498db;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.map-button:hover {
+  background: #1f78c1;
+}
+
+/* Content Box */
+.content {
+  background: #ffffff;
+  padding: 25px;
+  margin: 30px auto;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.content h2 {
+  color: #1f2d3d;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+/* List Styling */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: #ecf0f1;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  transition: 0.3s;
+}
+
+ul li:hover {
+  background: #d5dbdb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+      width: 90%;
+  }
+}
