@@ -108,6 +108,83 @@
     #sliderValue {
       font-weight: bold;
     }
+
+    /* Popup Modal */
+    .modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 50%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .close {
+      color: #666;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
+    #closePopup {
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 15px;
+      transition: background 0.3s ease-in-out;
+    }
+    #closePopup:hover { background-color: #0056b3; }
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    ul {
+      text-align: left;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    ul li {
+      padding: 5px 0;
+      font-size: 15px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+
   </style>
 </head>
 
@@ -202,6 +279,23 @@
     <!-- Chart -->
     <div id="chartContainer">
       <canvas id="chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Popup Modal -->
+  <div id="popupModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Welcome to the Seattle Crash Map!</h2>
+      <p>This interactive web map visualizes car crashes in Seattle, providing insights into traffic hazards and accident trends.</p>
+      <p> <strong>Key Features:</strong></p>
+      <ul style="text-align: left; display: inline-block;">
+        <li>🔹 Interactive map with crash locations</li>
+        <li>🔹 User-controlled filters (year, severity, type)</li>
+        <li>🔹 Heatmaps & clustering to highlight high-risk areas</li>
+        <li>🔹 Data summary panel with real-time statistics</li>
+      </ul>
+      <button id="closePopup">Got it!</button>
     </div>
   </div>
 
@@ -475,6 +569,22 @@
         collisionTypeSelect.appendChild(option);
       });
     }
+
+    window.onload = function() {
+      let modal = document.getElementById("popupModal");
+      let closeButton = document.getElementsByClassName("close")[0];
+      let closePopupButton = document.getElementById("closePopup");
+
+      // Close modal when clicking "X" or "Got it!" button
+      closeButton.onclick = function() { modal.style.display = "none"; };
+      closePopupButton.onclick = function() { modal.style.display = "none"; };
+
+      // Close modal if clicking outside the modal
+      window.onclick = function(event) {
+        if (event.target == modal) { modal.style.display = "none"; }
+      };
+    };
+
   </script>
 </body>
 </html>
