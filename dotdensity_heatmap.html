@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>Seattle Car Crashes - Interactive Page</title>
   <!-- Mapbox GL CSS -->
   <link 
     href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" 
-    rel="stylesheet" 
+    rel="stylesheet"
   />
 
+  <!-- Chart.js -->
   <script 
     src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js">
   </script>
 
+  <!-- Turf.js -->
   <script 
     src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js">
   </script>
@@ -157,7 +159,9 @@
       margin-top: 15px;
       transition: background 0.3s ease-in-out;
     }
-    #closePopup:hover, #closeReferences:hover { background-color: #0056b3; }
+    #closePopup:hover, #closeReferences:hover { 
+      background-color: #0056b3; 
+    }
     h2 {
       color: #333;
       margin-bottom: 15px;
@@ -192,21 +196,17 @@
       border-radius: 5px;
       font-size: 14px;
     }
-    #referencesButton:hover { background-color: #0056b3; }
-  </style>
-</head>
-<body>
-  <div id="map"></div>
-
-
+    #referencesButton:hover { 
+      background-color: #0056b3; 
+    }
   </style>
 </head>
 
 <body>
-  <!-- Map Div -->
+  
   <div id="map"></div>
 
-  <!-- Dot Density Legend -->
+ 
   <div id="legend" class="legend">
     <h4>Dot Density Legend</h4>
     <div>
@@ -226,13 +226,13 @@
     </div>
   </div>
 
-  <!-- Heatmap Legend  -->
+
   <div id="legendHeatmap" class="legend" style="display: none;">
     <h4>Heatmap Intensity</h4>
-    <!-- Matches the paint color ramp (green -> yellow -> red) -->
     <div style="width: 150px; height: 10px; 
                 background: linear-gradient(to right, green, yellow, red);
-                border: 1px solid #ccc; margin-bottom: 5px;"></div>
+                border: 1px solid #ccc; margin-bottom: 5px;">
+    </div>
     <div style="display: flex; justify-content: space-between; width: 150px;">
       <span>Low</span>
       <span>High</span>
@@ -240,22 +240,22 @@
     <p style="margin-top:5px;">Zoom in for more detail.</p>
   </div>
 
-  <!-- Sidebar / Control Panel -->
+  
   <div id="sidebar">
     <h2>Seattle Crash Map</h2>
     <p style="margin-bottom: 10px;">
       Explore collisions in Seattle by year, severity, and collision type. Switch between a heatmap and dot-density view, and see summary statistics update in real time.
     </p>
 
-    <!-- Toggle Heatmap / Dot-Density -->
+  
     <button id="toggleViewBtn">Switch to Heatmap</button>
     <hr>
 
-    <!-- Filters -->
+    
     <div class="filters">
       <label for="yearRange">Year</label>
       <div id="yearSliderContainer">
-        <!-- 1) Changed step to 4 so it only toggles between 2016 and 2020 -->
+        
         <input 
           id="yearRange" 
           type="range" 
@@ -282,7 +282,7 @@
 
     <hr>
 
-    <!-- Summary Stats -->
+   
     <h3>Summary Statistics</h3>
     <div id="statsContainer">
       <p><strong>Total Collisions:</strong> <span id="statTotal">0</span></p>
@@ -290,20 +290,20 @@
       <p><strong>Serious Injuries:</strong> <span id="statSerious">0</span></p>
     </div>
 
-    <!-- Chart -->
+    
     <div id="chartContainer">
       <canvas id="chart"></canvas>
     </div>
   </div>
 
-  <!-- Popup Modal -->
+  
   <div id="popupModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Welcome to the Seattle Crash Map!</h2>
       <p>This interactive web map visualizes car crashes in Seattle, providing insights into traffic hazards and accident trends.</p>
-      <p> <strong>Key Features:</strong></p>
-      <ul style="text-align: left; display: inline-block;">
+      <p><strong>Key Features:</strong></p>
+      <ul>
         <li>🔹 Interactive map with crash locations</li>
         <li>🔹 User-controlled filters (year, severity, type)</li>
         <li>🔹 Heatmaps & clustering to highlight high-risk areas</li>
@@ -313,31 +313,31 @@
     </div>
   </div>
 
-    <!-- References Button -->
-    <button id="referencesButton">References</button>
+  
+  <button id="referencesButton">References</button>
 
-    <!-- References Popup -->
-    <div id="referencesModal" class="modal" style="display: none;">
-      <div class="modal-content">
-        <h2>References</h2>
-        <p>This project was built using publicly available datasets and resources:</p>
-        <ul>
-          <li><a href="https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions" target="_blank">Seattle GeoData Portal</a> - Traffic collision data</li>
-          <li><a href="https://wtsc.wa.gov/dashboards/fatal-crash-map/" target="_blank">Washington Traffic Safety Commission</a> - Fatal crash analysis</li>
-          <li><a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about" target="_blank">SDOT Vehicle Collisions Data</a></li>
-          <li><a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about" target="_blank">SDOT Persons Collisions Data</a></li>
-        </ul>
-        <button id="closeReferences">Close</button>
-      </div>
+  
+  <div id="referencesModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>References</h2>
+      <p>This project was built using publicly available datasets and resources:</p>
+      <ul>
+        <li><a href="https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions" target="_blank">Seattle GeoData Portal</a> - Traffic collision data</li>
+        <li><a href="https://wtsc.wa.gov/dashboards/fatal-crash-map/" target="_blank">Washington Traffic Safety Commission</a> - Fatal crash analysis</li>
+        <li><a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about" target="_blank">SDOT Vehicle Collisions Data</a></li>
+        <li><a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about" target="_blank">SDOT Persons Collisions Data</a></li>
+      </ul>
+      <button id="closeReferences">Close</button>
     </div>
+  </div>
 
-  <!-- Mapbox GL JS -->
+  
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
   <script>
-    // Mapbox Accesstoken
-    mapboxgl.accessToken = 'pk.eyJ1IjoicWl6aGV4dSIsImEiOiJjbTZzbmE1bHcwOWFrMmtvc3M2bWVmd2d6In0.W9AIJnK5UM1GNNwKZIXU2g';
+    
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamVybXRhbiIsImEiOiJjbTZ0dWJrdTEwNm85MnJwdDkwMnRnbWdzIn0.veXha7dQKwAH_U5gHXIXQg'; 
 
-    // Initialize the map
+    
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v12',
@@ -345,41 +345,41 @@
       zoom: 11
     });
 
-    // State to track whether heatmap is active
+    
     let isHeatmap = false;
 
-    // DOM elements
+    
     const toggleViewBtn = document.getElementById('toggleViewBtn');
     const yearRange = document.getElementById('yearRange');
     const sliderValue = document.getElementById('sliderValue');
     const severitySelect = document.getElementById('severityFilter');
     const collisionTypeSelect = document.getElementById('collisionTypeFilter');
 
-    // Stats DOM
+    
     const statTotal = document.getElementById('statTotal');
     const statFatal = document.getElementById('statFatal');
     const statSerious = document.getElementById('statSerious');
 
-    // Legends
+    
     const dotLegend = document.getElementById('legend');
     const heatLegend = document.getElementById('legendHeatmap');
 
-    // Chart.js elements
+    
     let collisionChart;
     const ctx = document.getElementById('chart').getContext('2d');
 
-    // Fetch the collision data
+    
     fetch('cleanedData/Filtered_Collisions_Data__2016___2020_.geojson')
       .then(response => response.json())
       .then(data => {
         map.on('load', () => {
-          // Add the source
+          
           map.addSource('collisions', {
             type: 'geojson',
             data: data
           });
 
-          // Add Dot Density Layer
+
           map.addLayer({
             id: 'collisions-circle',
             type: 'circle',
@@ -389,18 +389,18 @@
               'circle-color': [
                 'match',
                 ['get', 'SEVERITYDESC'],
-                'Injury Collision', '#e55e5e',         // Red
-                'Property Damage Only Collision', '#3bb2d0', // Light Blue
-                'Unknown', '#8a2be2',                 // Purple
-                'Serious Injury Collision', '#ff7f00', // Orange
-                'Fatality Collision', '#000000',       // Black
-                '#ccc' // Fallback
+                'Injury Collision', '#e55e5e', 
+                'Property Damage Only Collision', '#3bb2d0', 
+                'Unknown', '#8a2be2', 
+                'Serious Injury Collision', '#ff7f00', 
+                'Fatality Collision', '#000000', 
+                '#ccc' 
               ],
               'circle-opacity': 0.7
             }
           });
 
-          // Add Heatmap Layer (hidden by default)
+          
           map.addLayer({
             id: 'collisions-heat',
             type: 'heatmap',
@@ -437,14 +437,13 @@
             }
           });
 
-          // Populate filter dropdowns
+          
           populateFilters(data);
-
-          // Build the chart structure
+          
           collisionChart = new Chart(ctx, {
             type: 'bar',
             data: {
-              labels: [], // e.g., severities
+              labels: [], 
               datasets: [{
                 label: 'Number of Collisions',
                 data: [],
@@ -463,11 +462,11 @@
             }
           });
 
-          // Update everything on initial load
+          
           updateFiltersAndStats();
         });
 
-        // Add a popup on click for dot-density layer
+        
         map.on('click', 'collisions-circle', (e) => {
           const feature = e.features[0];
           if (!feature) return;
@@ -483,7 +482,7 @@
             .addTo(map);
         });
 
-        // Change cursor to pointer when hovering the circle layer
+        
         map.on('mouseenter', 'collisions-circle', () => {
           map.getCanvas().style.cursor = 'pointer';
         });
@@ -493,7 +492,7 @@
       })
       .catch(err => console.error('Error loading GeoJSON:', err));
 
-    // Toggle between dot-density and heatmap
+    
     toggleViewBtn.addEventListener('click', () => {
       isHeatmap = !isHeatmap;
       map.setLayoutProperty('collisions-heat', 'visibility', isHeatmap ? 'visible' : 'none');
@@ -503,12 +502,12 @@
         ? 'Switch to Dot Density' 
         : 'Switch to Heatmap';
       
-      // Show/hide the appropriate legends
+      
       dotLegend.style.display = isHeatmap ? 'none' : 'block';
       heatLegend.style.display = isHeatmap ? 'block' : 'none';
     });
 
-    // Event listeners for filters
+    
     yearRange.addEventListener('input', () => {
       sliderValue.textContent = yearRange.value;
       updateFiltersAndStats();
@@ -516,7 +515,7 @@
     severitySelect.addEventListener('change', updateFiltersAndStats);
     collisionTypeSelect.addEventListener('change', updateFiltersAndStats);
 
-    // Function to build filter array & apply to layers
+    
     function updateFiltersAndStats() {
       const year = parseInt(yearRange.value, 10);
       const severity = severitySelect.value;
@@ -524,13 +523,10 @@
 
       let filters = ['all'];
 
-      // Year filter: compare first 4 chars of INCDATE to the slider
+      
       filters.push([
         '==',
-        [
-          'number',
-          ['to-number', ['slice', ['get', 'INCDATE'], 0, 4]]
-        ],
+        ['number', ['to-number', ['slice', ['get', 'INCDATE'], 0, 4]]],
         year
       ]);
 
@@ -545,11 +541,11 @@
       map.setFilter('collisions-heat', filters);
       map.setFilter('collisions-circle', filters);
 
-      // Update stats after filter
+      
       updateStats(filters);
     }
 
-    // Use map.querySourceFeatures to get the filtered features on the client
+    
     function updateStats(filters) {
       const features = map.querySourceFeatures('collisions', { filter: filters });
       const total = features.length;
@@ -560,7 +556,7 @@
       statFatal.textContent = fatal;
       statSerious.textContent = serious;
 
-      // Update bar chart (collisions by severity)
+      
       const severitiesCount = {};
       features.forEach(f => {
         const sev = f.properties.SEVERITYDESC;
@@ -576,7 +572,7 @@
       collisionChart.update();
     }
 
-    // Populate the dropdowns for severity & collision type
+    
     function populateFilters(geojson) {
       const features = geojson.features;
       const severities = new Set();
@@ -602,32 +598,39 @@
       });
     }
 
+    
     window.onload = function() {
+      // Popup modal
       let modal = document.getElementById("popupModal");
       let closeButton = document.getElementsByClassName("close")[0];
       let closePopupButton = document.getElementById("closePopup");
 
-      // Close modal 
+      
       closeButton.onclick = function() { modal.style.display = "none"; };
       closePopupButton.onclick = function() { modal.style.display = "none"; };
-
-      // Close modal if clicking outside the modal
       window.onclick = function(event) {
-        if (event.target == modal) { modal.style.display = "none"; }
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
       };
 
-          // References Modal
-          let referencesModal = document.getElementById("referencesModal");
+      
+      let referencesModal = document.getElementById("referencesModal");
       let referencesButton = document.getElementById("referencesButton");
       let closeReferencesButton = document.getElementById("closeReferences");
 
-      referencesButton.onclick = function() { referencesModal.style.display = "flex"; };
-      closeReferencesButton.onclick = function() { referencesModal.style.display = "none"; };
-      window.onclick = function(event) {
-        if (event.target == referencesModal) { referencesModal.style.display = "none"; }
+      referencesButton.onclick = function() {
+        referencesModal.style.display = "flex";
       };
+      closeReferencesButton.onclick = function() {
+        referencesModal.style.display = "none";
+      };
+      window.addEventListener("click", function(event) {
+        if (event.target == referencesModal) {
+          referencesModal.style.display = "none";
+        }
+      });
     };
-
   </script>
 </body>
 </html>
