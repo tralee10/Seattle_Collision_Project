@@ -146,7 +146,7 @@
     .close:hover {
       color: #000;
     }
-    #closePopup {
+    #closePopup, #closeReferences {
       background-color: #007BFF;
       color: white;
       padding: 12px 20px;
@@ -157,7 +157,7 @@
       margin-top: 15px;
       transition: background 0.3s ease-in-out;
     }
-    #closePopup:hover { background-color: #0056b3; }
+    #closePopup:hover, #closeReferences:hover { background-color: #0056b3; }
     h2 {
       color: #333;
       margin-bottom: 15px;
@@ -179,6 +179,20 @@
       font-size: 15px;
       color: #444;
     }
+    /* References Button */
+    #referencesButton {
+      position: fixed;
+      bottom: 20px;
+      right: 310px;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    #referencesButton:hover { background-color: #0056b3; }
   </style>
 </head>
 <body>
@@ -298,6 +312,24 @@
       <button id="closePopup">Got it!</button>
     </div>
   </div>
+
+    <!-- References Button -->
+    <button id="referencesButton">References</button>
+
+    <!-- References Popup -->
+    <div id="referencesModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <h2>References</h2>
+        <p>This project was built using publicly available datasets and resources:</p>
+        <ul>
+          <li><a href="https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions" target="_blank">Seattle GeoData Portal</a> - Traffic collision data</li>
+          <li><a href="https://wtsc.wa.gov/dashboards/fatal-crash-map/" target="_blank">Washington Traffic Safety Commission</a> - Fatal crash analysis</li>
+          <li><a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about" target="_blank">SDOT Vehicle Collisions Data</a></li>
+          <li><a href="https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about" target="_blank">SDOT Persons Collisions Data</a></li>
+        </ul>
+        <button id="closeReferences">Close</button>
+      </div>
+    </div>
 
   <!-- Mapbox GL JS -->
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
@@ -575,13 +607,24 @@
       let closeButton = document.getElementsByClassName("close")[0];
       let closePopupButton = document.getElementById("closePopup");
 
-      // Close modal when clicking "X" or "Got it!" button
+      // Close modal 
       closeButton.onclick = function() { modal.style.display = "none"; };
       closePopupButton.onclick = function() { modal.style.display = "none"; };
 
       // Close modal if clicking outside the modal
       window.onclick = function(event) {
         if (event.target == modal) { modal.style.display = "none"; }
+      };
+
+          // References Modal
+          let referencesModal = document.getElementById("referencesModal");
+      let referencesButton = document.getElementById("referencesButton");
+      let closeReferencesButton = document.getElementById("closeReferences");
+
+      referencesButton.onclick = function() { referencesModal.style.display = "flex"; };
+      closeReferencesButton.onclick = function() { referencesModal.style.display = "none"; };
+      window.onclick = function(event) {
+        if (event.target == referencesModal) { referencesModal.style.display = "none"; }
       };
     };
 
