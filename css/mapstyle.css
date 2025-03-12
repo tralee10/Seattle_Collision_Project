@@ -101,6 +101,39 @@ nav ul li a:hover {
   color: #1f2d3d;
 }
 
+/* Accordion Styling */
+.accordion {
+  background-color: #dce2e7; /* Match navigation bar color */
+  color: #000000;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1em;
+  font-weight: normal;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion:hover, .accordion.active {
+  background-color: #93bad4; /* Match active nav link */
+  color: rgb(0, 0, 0);
+}
+
+/* Style the accordion panel */
+.panel {
+  padding: 15px;
+  background: #ffffff;
+  display: none;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
 /* Header */
 header {
   margin-top: 50px;
