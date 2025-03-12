@@ -33,6 +33,28 @@
         </ul>
     </div>
 
+    <div class="content">
+        <h2>Features & Functionality</h2>
+        <ul>
+            <li><strong>Interactive Web Map:</strong> Built using Mapbox for smooth visualization. Displays collision locations with pop-up details.</li>
+            <li><strong>User-Controlled Filters:</strong> Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.</li>
+            <li><strong>Heatmaps & Clustering:</strong> Highlights high-risk areas to identify traffic hazards.</li>
+        </ul>
+        
+        <button class="accordion"><strong>Data Summary Panel: </strong>Provides real-time statistics, such as:</button>
+        <div class="panel">
+            <ul>
+                <li>🔹 Most common crash causes.</li>
+                <li>🔹 High-risk intersections.</li>
+                <li>🔹 Trends over time.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Seattle Collision Map | Seattle, WA</p>
+    </footer>
+
     <script>
         function toggleMenu() {
             var x = document.getElementById("myTopnav");
@@ -43,6 +65,8 @@
             }
         }
     </script>
+
+    <script src="js/actions.js"></script>
 
 </body>
 </html>
