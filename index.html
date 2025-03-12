@@ -6,15 +6,17 @@
     <title>Seattle Collision Map</title>
     <link rel="stylesheet" href="css/mapstyle.css">
     <link rel="icon" type="image/png" href="imgs/favicon_sea_car.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="references.html">References</a></li>
-        </ul>
-    </nav>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="references.html">References</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
     <header>
         <img src="imgs/favicon_sea_car.png" alt="Seattle Collision Map Icon" class="front-page-image">
@@ -30,5 +32,17 @@
             <li><strong>Heatmap:</strong> Quickly spot high-risk areas with intense traffic incidents.</li>
         </ul>
     </div>
+
+    <script>
+        function toggleMenu() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
 </body>
 </html>
