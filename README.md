@@ -7,6 +7,9 @@ Visualizing Car Crashes in Seattle for Better Road Safety
 ## Project Overview
 Our group is developing an interactive web map that visualizes car crashes in Seattle using publicly available datasets. This tool provides insights into traffic incidents, allowing users to explore different trends through interactive filtering and visualizations.
 
+## Favicon
+![favicon_sea_car](https://github.com/user-attachments/assets/19f2ef80-dd44-444c-a53a-6d3895fe8849)
+
 ## Key Objectives
 Increase public awareness of traffic hazards.
 Help city planners make data-driven urban planning decisions.
@@ -72,6 +75,6 @@ Fatal Crash Map by the Washington Traffic Safety Commission
 
 Seattle Collision Data Visualization by Tim Ganter
 
-## 📂 Repository Structure
+## Repository Structure
 
 
