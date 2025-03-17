@@ -9,10 +9,10 @@ https://tralee10.github.io/Seattle_Collision_Project/index.html
 Our group is developing an interactive web map that visualizes car crashes in Seattle using publicly available datasets. This tool provides insights into traffic incidents, allowing users to explore different trends through interactive filtering and visualizations.
 
 ### Key Objectives
-Increase public awareness of traffic hazards.
-Help city planners make data-driven urban planning decisions.
-Enable drivers and commuters to navigate more safely.
-The interactive map will feature crash locations, pop-up details, user-controlled filters, and statistical insights on contributing factors, high-risk intersections, and accident trends.
+* Increase public awareness of traffic hazards.
+* Help city planners make data-driven urban planning decisions.
+* Enable drivers and commuters to navigate more safely.
+* The interactive map will feature crash locations, pop-up details, user-controlled filters, and statistical insights on contributing factors, high-risk intersections, and accident trends.
 
 ### Target Audience
 This project is designed for:
@@ -30,7 +30,7 @@ Built using Mapbox for smooth visualization.
 ### Interactive Web Map:
 
 Crash point visualization (color-coded by severity) 
-- Displays collision locations with pop-up details.
+  - Displays collision locations with pop-up details.
 
 ### User-Controlled Filters:
 
