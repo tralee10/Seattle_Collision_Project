@@ -107,3 +107,14 @@ Seattle Collision Data Visualization by Tim Ganter
 
 ### AI-Use Disclosure
 ChatGPT was used to create the favicon.
+
+
+
+## Contributors
+
+Travis Lee, Jeremy Tan, Billy To, Jerry Xhu
+
+
+---
+
+This README serves as a comprehensive guide to understanding, using, and contributing to the Seattle Collision Map project.
