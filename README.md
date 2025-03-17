@@ -57,16 +57,16 @@ Opens a pop-up displaying data sources and references.
 
 ## Screenshots
 
-#### Dot-density Map
+### Dot-density Map
 ![image](https://github.com/user-attachments/assets/69bcc84b-0955-4469-96fb-e71f85077b95)
 
 ### Heatmap
 ![image](https://github.com/user-attachments/assets/7becac01-792f-4332-93b6-51726b46203c)
 
-#### Sidebar (Switch Map Button, Time Slider, Filters, Summary Statistics)
+### Sidebar (Switch Map Button, Time Slider, Filters, Summary Statistics)
 ![image](https://github.com/user-attachments/assets/1c310033-1ee4-476d-bc8d-035cf535bc42)
 
-#### Pop-up Details
+### Pop-up Details
 ![image](https://github.com/user-attachments/assets/f3368d31-d796-442a-91a6-0efe4f15becd)
 
 
