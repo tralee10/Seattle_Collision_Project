@@ -6,56 +6,69 @@
 https://tralee10.github.io/Seattle_Collision_Project/index.html
 
 ## Project Overview
-This interactive web map visualizes car crashes in Seattle using publicly available datasets. It provides insights into traffic incidents, allowing users to explore trends through interactive filtering and visualizations. The map focuses on the years 2016 and 2020 to highlight changes in traffic patterns before and after COVID-19.
+This interactive web map provides a detailed visualization of car crashes in Seattle, leveraging publicly available datasets to present a comprehensive overview of traffic incidents. By offering insights into crash trends, severity, and contributing factors, the project aims to improve public awareness and assist in data-driven urban planning decisions.
+
+The map specifically focuses on crash data from the years 2016 and 2020 to highlight changes in traffic patterns before and after the COVID-19 pandemic. Users can interact with the map to explore these trends, utilizing various filtering tools and visualization techniques to gain deeper insights into traffic safety issues.
 
 ### Key Objectives
-* Increase public awareness of traffic hazards.
-* Help city planners make data-driven urban planning decisions.
-* Enable drivers and commuters to navigate more safely.
-* The interactive map will feature crash locations, pop-up details, user-controlled filters, and statistical insights on contributing factors, high-risk intersections, and accident trends.
+This project is designed to achieve the following goals:
+
+* **Increase Public Awareness**: By making crash data accessible and interactive, the project helps Seattle residents better understand road safety risks in their area.
+* **Support Data-Driven Urban Planning**: City planners and transportation officials can utilize the insights derived from the data to enhance infrastructure and implement safety measures.
+* **Improve Road Safety for Drivers and Commuters**: By identifying high-risk intersections and common crash causes, the project allows drivers to make informed decisions about their routes and behaviors.
+
+The interactive map provides a variety of functionalities, including:
+
+* Crash location visualization with interactive pop-ups displaying crash details.
+* User-controlled filters for customizing the displayed data.
+* Heatmaps and clustering to highlight high-risk areas.
+* A data summary panel showcasing key statistics, trends, and safety insights.
 
 ### Target Audience
-This project is designed for:
+The Seattle Collision Map is designed for a diverse set of users who benefit from its insights:
 
-* Seattle Residents – To identify high-risk areas and make informed decisions about where to live or commute.
-* City Planners & Transportation Officials – To improve road safety infrastructure by analyzing accident patterns.
-* Drivers & Commuters – To avoid hazardous areas and plan safer routes.
+* **Seattle Residents**: Allows individuals to assess traffic risks near their homes, workplaces, and frequently traveled routes.
+* **City Planners & Transportation Officials**: Provides a data-driven approach to improving road safety infrastructure, such as redesigning intersections and implementing new traffic regulations.
+* **Drivers & Commuters**: Helps motorists and cyclists make informed decisions about their routes, potentially reducing their exposure to hazardous areas.
+* **Researchers & Data Analysts**: Offers valuable data for further studies on urban mobility, accident patterns, and public safety.
 
 
 
 ## Features & Functionality
 
-Built using Mapbox for smooth visualization.
+This web application is built using Mapbox to ensure a smooth and interactive user experience.
 
 ### Interactive Web Map:
 
-* Crash point visualization (color-coded by severity).
-* Pop-up details: Displays key crash information (i.e. date, severity, type, address).
+* **Crash Point Visualization**: Accidents are displayed on the map with color-coded markers that indicate severity levels, allowing users to identify high-risk locations at a glance.
+* **Pop-up Details**: Clicking on a crash marker provides detailed information, including the date, severity, type of collision, and specific location.
 
 ### User-Controlled Filters:
 
-* Button that switches between the dot-density map and heatmap.
-* Time slider that switches between 2016 and 2020.
-* Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.
+* **Dot-Density Map & Heatmap Toggle**: Users can switch between a dot-density representation of crashes and a heatmap that highlights accident hotspots.
+* **Time Slider**: Allows users to compare crash data between 2016 and 2020 to observe changes over time.
+* **Crash Type Filter**: Users can filter crashes based on the type of incident, such as vehicle-only accidents, pedestrian-involved crashes, or cyclist collisions.
+* **Severity Filter**: Allows filtering of crashes based on severity, distinguishing between minor, serious, and fatal incidents.
 
 ### Heatmaps & Clustering:
 
-Highlights accident-prone locations to identify traffic hazards or for pattern recognition.
+* **Accident-Prone Areas**: The heatmap visualizes locations with a high concentration of crashes, making it easier to identify dangerous intersections and road segments.
+* **Pattern Recognition**: Helps reveal trends in crash frequency, aiding in the development of targeted road safety interventions.
 
 ### Data Summary Panel:
 
-Provides real-time statistics, such as:
-
-* Most common crash causes.
-* High-risk intersections.
-* Trends over time.
+* **Real-Time Statistics**: Provides key insights into the data, such as the most common causes of crashes, the intersections with the highest number of incidents, and year-over-year trends.
+* **High-Risk Intersections**: Identifies locations with frequent accidents, which can inform infrastructure improvements and policy changes.
+* **Crash Trends Over Time**: Displays graphical representations of accident frequency, severity, and contributing factors, helping users understand how traffic safety has evolved.
 
 ### References Button:
 
-Opens a pop-up displaying data sources and references.
+**Data Sources & Documentation**: A dedicated button allows users to view a pop-up that lists all data sources, methodologies, and references used in the project.
 
 
 ## Screenshots
+
+The following images illustrate the key features of the Seattle Collision Map:
 
 ### Dot-density Map
 ![image](https://github.com/user-attachments/assets/69bcc84b-0955-4469-96fb-e71f85077b95)
@@ -80,6 +93,8 @@ Opens a pop-up displaying data sources and references.
 
 ### Available Datasets
 
+This project utilizes publicly available datasets:
+
 * **Seattle GeoData Portal** – General dataset collection related to Seattle traffic collisions. 
 
 (https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions)
@@ -99,31 +114,36 @@ Opens a pop-up displaying data sources and references.
 
 ### Data Processing
 
-* Cleaned datasets by removing irrelevant columns, handling missing data, and standardizing attributes.
-* Filtered data to focus on relevant crash incidents.
+* **Cleaning & Preprocessing**: Removed irrelevant columns, handled missing data, and standardized attribute formats.
+* **Filtering**: Focused on crash incidents that were relevant to our analysis, particularly those occurring in 2016 and 2020.
 * Cleaned datasets are stored in the cleanedData/ folder.
 
 
 
 ## Applied Libraries & Technical Implemations
 
-* **JavaScript, HTML, CSS** - Frontend interactivity.
-* **Mapbox GL JS** - Renders the interactive web map.
-* **GeoJSON** - Stores and visualizes spatial data.
-* **Chart.js** - Displays statistical insights.
-* **Turf.js** - Used for spatial analysis (e.g. clustering and filtering).
+* **JavaScript, HTML, CSS** - Provides the structure and styling for the web application.
+* **Mapbox GL JS** - Handles rendering of the interactive map and geospatial visualizations.
+* **GeoJSON** - Used for storing and displaying spatial data.
+* **Chart.js** - Displays statistical insights in an intuitive graphical format.
+* **Turf.js** - Performs spatial analysis tasks such as clustering and filtering.
 
 
 
 ## Acknowledgements
 
 ### Inspirations & References
-This project is inspired by:
+This project drew inspiration from:
 
 * **Fatal Crash Map** by the Washington Traffic Safety Commission.
+
+(https://wtsc.wa.gov/dashboards/fatal-crash-map/)
+
 * **Seattle Collision Data Visualization** by Tim Ganter.
 
-### Images
+(https://seattlecollisions.timganter.io/collisions)
+
+Imagery provided by:
 
 **Visit The USA**: Guide To USA Holidays & Travel Around America
 
@@ -131,9 +151,10 @@ This project is inspired by:
 
 ### AI-Use Disclosure
 
-* ChatGPT was used to help debug code.
+* ChatGPT was used to help debug JavaScript code.
 * ChatGPT was used to create the favicon.
 
+AI tools were not used to 
 
 
 ## Contributors
