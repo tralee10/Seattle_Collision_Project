@@ -17,13 +17,6 @@ This project is designed to achieve the following goals:
 * **Support Data-Driven Urban Planning**: City planners and transportation officials can utilize the insights derived from the data to enhance infrastructure and implement safety measures.
 * **Improve Road Safety for Drivers and Commuters**: By identifying high-risk intersections and common crash causes, the project allows drivers to make informed decisions about their routes and behaviors.
 
-The interactive map provides a variety of functionalities, including:
-
-* Crash location visualization with interactive pop-ups displaying crash details.
-* User-controlled filters for customizing the displayed data.
-* Heatmaps and clustering to highlight high-risk areas.
-* A data summary panel showcasing key statistics, trends, and safety insights.
-
 ### Target Audience
 The Seattle Collision Map is designed for a diverse set of users who benefit from its insights:
 
@@ -146,7 +139,7 @@ This project drew inspiration from:
 ### Imagery
 Imagery provided by:
 
-**Visit The USA**: Guide To USA Holidays & Travel Around America
+* **Visit The USA**: Guide To USA Holidays & Travel Around America
 
 (https://www.visittheusa.com/destination/seattle)
 
