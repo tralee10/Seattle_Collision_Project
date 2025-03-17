@@ -1,6 +1,6 @@
 # Visualizing Seattle Traffic Collisions
 
-Visualizing Car Crashes in Seattle for Better Road Safety
+Visualizing Car Crashes in Seattle for Better Road Safety.
 
 ### Application URL
 https://tralee10.github.io/Seattle_Collision_Project/index.html
