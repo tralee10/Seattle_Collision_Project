@@ -155,7 +155,7 @@ Imagery provided by:
 * ChatGPT was used to help debug JavaScript code.
 * ChatGPT was used to create the favicon.
 
-AI tools were not used to generate code to create the map, web page, README file, or any textual content on the web pages.
+AI tools were not used to generate code to create the web map, web page, README file, or any textual content on the web pages.
 
 
 ## Contributors
