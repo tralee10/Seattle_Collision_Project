@@ -1,6 +1,5 @@
-# Seattle Collision Project
+# Seattle Collision Map
 
-Seattle Crash Map – Interactive Web GIS
 Visualizing Car Crashes in Seattle for Better Road Safety
 
 ## Project Overview
@@ -26,10 +25,10 @@ This project is designed for:
 
 ## Features & Functionality
 
+Built using Mapbox for smooth visualization.
 
 ### Interactive Web Map:
 
-Built using Mapbox for smooth visualization.
 Crash point visualization (color-coded by severity) 
 - Displays collision locations with pop-up details.
 
