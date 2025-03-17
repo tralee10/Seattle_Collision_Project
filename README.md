@@ -143,6 +143,7 @@ This project drew inspiration from:
 
 (https://seattlecollisions.timganter.io/collisions)
 
+### Imagery
 Imagery provided by:
 
 **Visit The USA**: Guide To USA Holidays & Travel Around America
