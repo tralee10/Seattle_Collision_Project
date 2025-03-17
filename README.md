@@ -136,18 +136,15 @@ This project utilizes publicly available datasets:
 This project drew inspiration from:
 
 * **Fatal Crash Map** by the Washington Traffic Safety Commission.
-
 (https://wtsc.wa.gov/dashboards/fatal-crash-map/)
 
 * **Seattle Collision Data Visualization** by Tim Ganter.
-
 (https://seattlecollisions.timganter.io/collisions)
 
 ### Imagery
 Imagery provided by:
 
 **Visit The USA**: Guide To USA Holidays & Travel Around America
-
 (https://www.visittheusa.com/destination/seattle)
 
 ### AI-Use Disclosure
