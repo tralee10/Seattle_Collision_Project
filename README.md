@@ -76,7 +76,7 @@ Opens a pop-up displaying data sources and references.
 
 
 
-## Data
+## Data Sources
 
 ### Available Datasets
 
