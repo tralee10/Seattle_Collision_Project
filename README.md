@@ -3,12 +3,11 @@
 Seattle Crash Map – Interactive Web GIS
 Visualizing Car Crashes in Seattle for Better Road Safety
 
-
 ## Project Overview
 Our group is developing an interactive web map that visualizes car crashes in Seattle using publicly available datasets. This tool provides insights into traffic incidents, allowing users to explore different trends through interactive filtering and visualizations.
 
-## Favicon
-![favicon_sea_car](https://github.com/user-attachments/assets/19f2ef80-dd44-444c-a53a-6d3895fe8849)
+## Application URL
+https://tralee10.github.io/Seattle_Collision_Project/index.html
 
 ## Key Objectives
 Increase public awareness of traffic hazards.
@@ -19,9 +18,13 @@ The interactive map will feature crash locations, pop-up details, user-controlle
 ## Target Audience
 This project is designed for:
 
-🔹Seattle Residents – To identify high-risk areas and make informed decisions about where to live or commute.
-🔹City Planners & Transportation Officials – To improve road safety infrastructure by analyzing accident patterns.
-🔹Drivers & Commuters – To avoid hazardous areas and plan safer routes.
+* Seattle Residents – To identify high-risk areas and make informed decisions about where to live or commute.
+* City Planners & Transportation Officials – To improve road safety infrastructure by analyzing accident patterns.
+* Drivers & Commuters – To avoid hazardous areas and plan safer routes.
+
+## Main Functions
+
+*
 
 ## Available Datasets
 
@@ -40,6 +43,10 @@ This project is designed for:
 🔹Seattle GeoData Portal (Persons Collisions Data) - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
 
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
+
+## Technical Implemations
+
+
 
 ## Data Processing:
 We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
@@ -75,6 +82,11 @@ Fatal Crash Map by the Washington Traffic Safety Commission
 
 Seattle Collision Data Visualization by Tim Ganter
 
-## Repository Structure
+## AI-Use Disclosure
+ChatGPT was used to create the favicon.
 
 
+
+
+## Favicon
+![favicon_sea_car](https://github.com/user-attachments/assets/19f2ef80-dd44-444c-a53a-6d3895fe8849)
