@@ -95,11 +95,11 @@ The following images illustrate the key features of the Seattle Collision Map:
 
 This project utilizes publicly available datasets:
 
-* **Seattle GeoData Portal** – General dataset collection related to Seattle traffic collisions. 
+* **Seattle GeoData Portal** – Collection of datasets related to Seattle traffic collisions.
 
 (https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions)
 
-* **Washington Traffic Safety Commission** - Focuses on fatal crashes, providing additional context on severe accidents, speed limits, pedestrian involvement, and primary causes. 
+* **Washington Traffic Safety Commission** - Provides detailed reports on fatal crashes, including speed limits, pedestrian involvement, and primary causes.
 
 (https://wtsc.wa.gov/dashboards/fatal-crash-map/)
 
@@ -107,7 +107,7 @@ This project utilizes publicly available datasets:
 
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about)
 
-* **Seattle GeoData Portal (Persons Collisions Data)** - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
+* **Seattle GeoData Portal (Persons Collisions Data)** - Data on pedestrian and cyclist collisions, including demographic details and injury reports.
 
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
 
@@ -136,15 +136,18 @@ This project utilizes publicly available datasets:
 This project drew inspiration from:
 
 * **Fatal Crash Map** by the Washington Traffic Safety Commission.
+
 (https://wtsc.wa.gov/dashboards/fatal-crash-map/)
 
 * **Seattle Collision Data Visualization** by Tim Ganter.
+
 (https://seattlecollisions.timganter.io/collisions)
 
 ### Imagery
 Imagery provided by:
 
 **Visit The USA**: Guide To USA Holidays & Travel Around America
+
 (https://www.visittheusa.com/destination/seattle)
 
 ### AI-Use Disclosure
@@ -152,7 +155,7 @@ Imagery provided by:
 * ChatGPT was used to help debug JavaScript code.
 * ChatGPT was used to create the favicon.
 
-AI tools were not used to 
+AI tools were not used to generate code to create the map, web page, README file, or any textual content on the web pages.
 
 
 ## Contributors
