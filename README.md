@@ -29,9 +29,8 @@ Built using Mapbox for smooth visualization.
 
 ### Interactive Web Map:
 
-Crash point visualization (color-coded by severity) 
-  - Displays collision locations with pop-up details.
-
+* Crash point visualization (color-coded by severity)
+* Pop-up details: Displays key crash information (i.e. date, severity, type, address).
 
 ### User-Controlled Filters:
 
@@ -39,7 +38,7 @@ Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and co
 
 ### Heatmaps & Clustering:
 
-Highlights high-risk areas to identify traffic hazards.
+Highlights accident-prone locations to identify traffic hazards or for pattern recognition.
 
 ### Data Summary Panel:
 
@@ -51,7 +50,7 @@ Provides real-time statistics, such as:
 
 ### References Button:
 
-Opens a pop-up on screen with data sources.
+Opens a pop-up displaying data sources and references.
 
 
 ## Screenshots
@@ -84,16 +83,18 @@ Opens a pop-up on screen with data sources.
 
 
 ### Data Processing
-We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
-Cleaned datasets are stored in the assets/ folder.
+
+* Cleaned datasets by removing irrelevant columns, handling missing data, and standardizing attributes.
+* Filtered data to focus on relevant crash incidents.
+* Cleaned datasets are stored in the cleanedData/ folder.
 
 ### Applied Libraries & Technical Implemations
 
-* **JavaScript, HTML, CSS:** Frontend interactivity.
-* **Mapbox GL JS:** Renders the interactive web map.
-* **GeoJSON** Stores and visualizes spatial data.
-* **Char.js:** Displays statistical insights.
-* **Turf.js:** Used for spatial analysis (e.g. clustering).
+* **JavaScript, HTML, CSS -** Frontend interactivity.
+* **Mapbox GL JS -** Renders the interactive web map.
+* **GeoJSON -** Stores and visualizes spatial data.
+* **Char.js -** Displays statistical insights.
+* **Turf.js -** Used for spatial analysis (e.g. clustering and filtering).
 
 
 
@@ -102,11 +103,11 @@ Cleaned datasets are stored in the assets/ folder.
 ### Inspirations & References
 This project is inspired by:
 
-Fatal Crash Map by the Washington Traffic Safety Commission
-
-Seattle Collision Data Visualization by Tim Ganter
+* **Fatal Crash Map** by the Washington Traffic Safety Commission.
+* **Seattle Collision Data Visualization** by Tim Ganter.
 
 ### AI-Use Disclosure
+
 ChatGPT was used to create the favicon.
 
 
