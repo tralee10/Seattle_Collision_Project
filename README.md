@@ -24,23 +24,32 @@ This project is designed for:
 
 ## Main Functions
 
-*
+* JavaScript, HTML, CSS
+  - Frontend interactivity
+* Mapbox GL JS
+  - Renders the interactive web map
+* GeoJSON
+  - Stores and visualizes spatial data
+* Char.js
+  - Displays statistical insights
+* Turf.js
+  - Used for spatial analysis (e.g. clustering)
 
 ## Available Datasets
 
-*Seattle GeoData Portal – General dataset collection related to Seattle traffic collisions. 
+* Seattle GeoData Portal – General dataset collection related to Seattle traffic collisions. 
 
 (https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions)
 
-*Washington Traffic Safety Commission - Focuses on fatal crashes, providing additional context on severe accidents, speed limits, pedestrian involvement, and primary causes. 
+* Washington Traffic Safety Commission - Focuses on fatal crashes, providing additional context on severe accidents, speed limits, pedestrian involvement, and primary causes. 
 
 (https://wtsc.wa.gov/dashboards/fatal-crash-map/)
 
-*Seattle GeoData Portal (Vehicle Collisions Data) - Contains records of vehicle-related collisions, including crash details such as severity, involved vehicles, and contributing factors. 
+* Seattle GeoData Portal (Vehicle Collisions Data) - Contains records of vehicle-related collisions, including crash details such as severity, involved vehicles, and contributing factors. 
 
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about)
 
-*Seattle GeoData Portal (Persons Collisions Data) - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
+* Seattle GeoData Portal (Persons Collisions Data) - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
 
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
 
@@ -71,9 +80,9 @@ Highlights high-risk areas to identify traffic hazards.
 
 Provides real-time statistics, such as:
 
-*Most common crash causes.
-*High-risk intersections.
-*Trends over time.
+* Most common crash causes.
+* High-risk intersections.
+* Trends over time.
 
 ## Inspirations & References
 This project is inspired by:
