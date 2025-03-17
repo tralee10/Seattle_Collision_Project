@@ -1,4 +1,4 @@
-# Seattle Collision Map
+# Visualizing Seattle Traffic Collisions
 
 Visualizing Car Crashes in Seattle for Better Road Safety
 
@@ -103,7 +103,9 @@ Opens a pop-up displaying data sources and references.
 * Filtered data to focus on relevant crash incidents.
 * Cleaned datasets are stored in the cleanedData/ folder.
 
-### Applied Libraries & Technical Implemations
+
+
+## Applied Libraries & Technical Implemations
 
 * **JavaScript, HTML, CSS** - Frontend interactivity.
 * **Mapbox GL JS** - Renders the interactive web map.
