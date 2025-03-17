@@ -69,16 +69,11 @@ Provides real-time statistics, such as:
 
 ## Technical Implemations
 
-* *JavaScript, HTML, CSS*
-  - Frontend interactivity
-* *Mapbox GL JS*
-  - Renders the interactive web map
-* *GeoJSON*
-  - Stores and visualizes spatial data
-* *Char.js*
-  - Displays statistical insights
-* *Turf.js*
-  - Used for spatial analysis (e.g. clustering)
+* **JavaScript, HTML, CSS:** Frontend interactivity
+* **Mapbox GL JS:** Renders the interactive web map
+* **GeoJSON** Stores and visualizes spatial data
+* **Char.js:** Displays statistical insights
+* **Turf.js:** Used for spatial analysis (e.g. clustering)
 
 ## Data Processing:
 We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
