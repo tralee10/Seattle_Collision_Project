@@ -32,6 +32,7 @@ Built using Mapbox for smooth visualization.
 Crash point visualization (color-coded by severity) 
   - Displays collision locations with pop-up details.
 
+
 ### User-Controlled Filters:
 
 Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.
