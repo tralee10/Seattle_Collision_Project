@@ -110,7 +110,7 @@ Opens a pop-up displaying data sources and references.
 * **JavaScript, HTML, CSS** - Frontend interactivity.
 * **Mapbox GL JS** - Renders the interactive web map.
 * **GeoJSON** - Stores and visualizes spatial data.
-* **Char.js** - Displays statistical insights.
+* **Chart.js** - Displays statistical insights.
 * **Turf.js** - Used for spatial analysis (e.g. clustering and filtering).
 
 
