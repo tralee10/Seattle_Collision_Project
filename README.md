@@ -24,15 +24,15 @@ This project is designed for:
 
 ## Main Functions
 
-* JavaScript, HTML, CSS
+* *JavaScript, HTML, CSS*
   - Frontend interactivity
-* Mapbox GL JS
+* *Mapbox GL JS*
   - Renders the interactive web map
-* GeoJSON
+* *GeoJSON*
   - Stores and visualizes spatial data
-* Char.js
+* *Char.js*
   - Displays statistical insights
-* Turf.js
+* *Turf.js*
   - Used for spatial analysis (e.g. clustering)
 
 ## Available Datasets
