@@ -1,6 +1,6 @@
 # Visualizing Seattle Traffic Collisions
 
-Visualizing Car Crashes in Seattle for Better Road Safety.
+Seattle Collision Map - Visualizing Car Crashes in Seattle for Better Road Safety.
 
 ### Application URL
 https://tralee10.github.io/Seattle_Collision_Project/index.html
@@ -131,7 +131,8 @@ This project is inspired by:
 
 ### AI-Use Disclosure
 
-ChatGPT was used to create the favicon.
+* ChatGPT was used to help debug code.
+* ChatGPT was used to create the favicon.
 
 
 
