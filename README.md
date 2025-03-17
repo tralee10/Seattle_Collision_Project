@@ -29,8 +29,8 @@ Built using Mapbox for smooth visualization.
 
 ### Interactive Web Map:
 
-* Crash point visualization (color-coded by severity)
-* Pop-up details: Displays key crash information (i.e. date, severity, type, address)
+* Crash point visualization (color-coded by severity).
+* Pop-up details: Displays key crash information (i.e. date, severity, type, address).
 
 ### User-Controlled Filters:
 
@@ -46,9 +46,9 @@ Highlights accident-prone locations to identify traffic hazards or for pattern r
 
 Provides real-time statistics, such as:
 
-* Most common crash causes
-* High-risk intersections
-* Trends over time
+* Most common crash causes.
+* High-risk intersections.
+* Trends over time.
 
 ### References Button:
 
