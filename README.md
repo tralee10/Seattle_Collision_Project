@@ -5,23 +5,23 @@ Visualizing Car Crashes in Seattle for Better Road Safety
 ## Project Overview
 Our group is developing an interactive web map that visualizes car crashes in Seattle using publicly available datasets. This tool provides insights into traffic incidents, allowing users to explore different trends through interactive filtering and visualizations.
 
-## Application URL
-https://tralee10.github.io/Seattle_Collision_Project/index.html
-
-## Key Objectives
+### Key Objectives
 Increase public awareness of traffic hazards.
 Help city planners make data-driven urban planning decisions.
 Enable drivers and commuters to navigate more safely.
 The interactive map will feature crash locations, pop-up details, user-controlled filters, and statistical insights on contributing factors, high-risk intersections, and accident trends.
 
-## Target Audience
+### Target Audience
 This project is designed for:
 
 * Seattle Residents – To identify high-risk areas and make informed decisions about where to live or commute.
 * City Planners & Transportation Officials – To improve road safety infrastructure by analyzing accident patterns.
 * Drivers & Commuters – To avoid hazardous areas and plan safer routes.
 
------ 
+## Application URL
+https://tralee10.github.io/Seattle_Collision_Project/index.html
+
+
 
 ## Features & Functionality
 
@@ -36,11 +36,11 @@ Crash point visualization (color-coded by severity)
 
 Filter crash data by year, type (vehicle, pedestrian, cyclist), severity, and contributing factors.
 
-### Heatmaps & Clustering
+### Heatmaps & Clustering:
 
 Highlights high-risk areas to identify traffic hazards.
 
-### Data Summary Panel
+### Data Summary Panel:
 
 Provides real-time statistics, such as:
 
@@ -48,11 +48,22 @@ Provides real-time statistics, such as:
 * High-risk intersections.
 * Trends over time.
 
-### References Pop
+### References Button:
+
+Opens a pop-up on screen with data sources.
+
+
+## Screenshots
+
+## Favicon
+![favicon_sea_car](https://github.com/user-attachments/assets/19f2ef80-dd44-444c-a53a-6d3895fe8849)
 
 
 
-## Available Datasets
+
+## Data
+
+### Available Datasets
 
 * Seattle GeoData Portal – General dataset collection related to Seattle traffic collisions. 
 
@@ -70,7 +81,12 @@ Provides real-time statistics, such as:
 
 (https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
 
-## Technical Implemations
+
+### Data Processing
+We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
+Cleaned datasets are stored in the assets/ folder.
+
+### Applied Libraries & Technical Implemations
 
 * **JavaScript, HTML, CSS:** Frontend interactivity.
 * **Mapbox GL JS:** Renders the interactive web map.
@@ -78,12 +94,11 @@ Provides real-time statistics, such as:
 * **Char.js:** Displays statistical insights.
 * **Turf.js:** Used for spatial analysis (e.g. clustering).
 
-## Data Processing:
-We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
-Cleaned datasets are stored in the assets/ folder.
 
 
-## Inspirations & References
+## Acknowledgements
+
+### Inspirations & References
 This project is inspired by:
 
 Fatal Crash Map by the Washington Traffic Safety Commission
@@ -92,9 +107,3 @@ Seattle Collision Data Visualization by Tim Ganter
 
 ### AI-Use Disclosure
 ChatGPT was used to create the favicon.
-
-
-
-
-## Favicon
-![favicon_sea_car](https://github.com/user-attachments/assets/19f2ef80-dd44-444c-a53a-6d3895fe8849)
