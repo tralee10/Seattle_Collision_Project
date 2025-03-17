@@ -22,44 +22,7 @@ This project is designed for:
 * City Planners & Transportation Officials – To improve road safety infrastructure by analyzing accident patterns.
 * Drivers & Commuters – To avoid hazardous areas and plan safer routes.
 
-## Main Functions
-
-* *JavaScript, HTML, CSS*
-  - Frontend interactivity
-* *Mapbox GL JS*
-  - Renders the interactive web map
-* *GeoJSON*
-  - Stores and visualizes spatial data
-* *Char.js*
-  - Displays statistical insights
-* *Turf.js*
-  - Used for spatial analysis (e.g. clustering)
-
-## Available Datasets
-
-* Seattle GeoData Portal – General dataset collection related to Seattle traffic collisions. 
-
-(https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions)
-
-* Washington Traffic Safety Commission - Focuses on fatal crashes, providing additional context on severe accidents, speed limits, pedestrian involvement, and primary causes. 
-
-(https://wtsc.wa.gov/dashboards/fatal-crash-map/)
-
-* Seattle GeoData Portal (Vehicle Collisions Data) - Contains records of vehicle-related collisions, including crash details such as severity, involved vehicles, and contributing factors. 
-
-(https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about)
-
-* Seattle GeoData Portal (Persons Collisions Data) - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
-
-(https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
-
-## Technical Implemations
-
-
-
-## Data Processing:
-We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
-Cleaned datasets are stored in the assets/ folder.
+----- 
 
 ## Features & Functionality
 
@@ -84,6 +47,44 @@ Provides real-time statistics, such as:
 * High-risk intersections.
 * Trends over time.
 
+
+
+## Available Datasets
+
+* Seattle GeoData Portal – General dataset collection related to Seattle traffic collisions. 
+
+(https://data-seattlecitygis.opendata.arcgis.com/search?collection=Dataset&layout=grid&q=Collisions)
+
+* Washington Traffic Safety Commission - Focuses on fatal crashes, providing additional context on severe accidents, speed limits, pedestrian involvement, and primary causes. 
+
+(https://wtsc.wa.gov/dashboards/fatal-crash-map/)
+
+* Seattle GeoData Portal (Vehicle Collisions Data) - Contains records of vehicle-related collisions, including crash details such as severity, involved vehicles, and contributing factors. 
+
+(https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-vehicles/about)
+
+* Seattle GeoData Portal (Persons Collisions Data) - Provides data on collisions involving pedestrians and cyclists, including demographics and injuries. 
+
+(https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-collisions-persons/about)
+
+## Technical Implemations
+
+* *JavaScript, HTML, CSS*
+  - Frontend interactivity
+* *Mapbox GL JS*
+  - Renders the interactive web map
+* *GeoJSON*
+  - Stores and visualizes spatial data
+* *Char.js*
+  - Displays statistical insights
+* *Turf.js*
+  - Used for spatial analysis (e.g. clustering)
+
+## Data Processing:
+We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
+Cleaned datasets are stored in the assets/ folder.
+
+
 ## Inspirations & References
 This project is inspired by:
 
@@ -91,7 +92,7 @@ Fatal Crash Map by the Washington Traffic Safety Commission
 
 Seattle Collision Data Visualization by Tim Ganter
 
-## AI-Use Disclosure
+### AI-Use Disclosure
 ChatGPT was used to create the favicon.
 
 
