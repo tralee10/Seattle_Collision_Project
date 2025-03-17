@@ -26,10 +26,12 @@ This project is designed for:
 
 ## Features & Functionality
 
+
 ### Interactive Web Map:
 
 Built using Mapbox for smooth visualization.
-Displays collision locations with pop-up details.
+Crash point visualization (color-coded by severity) 
+- Displays collision locations with pop-up details.
 
 ### User-Controlled Filters:
 
@@ -46,6 +48,8 @@ Provides real-time statistics, such as:
 * Most common crash causes.
 * High-risk intersections.
 * Trends over time.
+
+### References Pop
 
 
 
@@ -69,11 +73,11 @@ Provides real-time statistics, such as:
 
 ## Technical Implemations
 
-* **JavaScript, HTML, CSS:** Frontend interactivity
-* **Mapbox GL JS:** Renders the interactive web map
-* **GeoJSON** Stores and visualizes spatial data
-* **Char.js:** Displays statistical insights
-* **Turf.js:** Used for spatial analysis (e.g. clustering)
+* **JavaScript, HTML, CSS:** Frontend interactivity.
+* **Mapbox GL JS:** Renders the interactive web map.
+* **GeoJSON** Stores and visualizes spatial data.
+* **Char.js:** Displays statistical insights.
+* **Turf.js:** Used for spatial analysis (e.g. clustering).
 
 ## Data Processing:
 We cleaned and formatted the datasets by removing irrelevant columns, handling missing data, standardizing attributes, and filtering relevant incidents.
